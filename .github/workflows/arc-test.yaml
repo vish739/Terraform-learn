@@ -1,7 +1,13 @@
-name: arc-test
+name: docker-test
 on: workflow_dispatch
 jobs:
-  test:
+  build:
     runs-on: arc-runner-set
     steps:
-      - run: echo "Hello from EKS runner" && uname -a
+      - uses: actions/checkout@v4
+      - run: docker version
+      - run: docker run --rm hello-world
+      - run: |
+          printf 'FROM alpine\nCMD ["echo","built on EKS"]\n' > Dockerfile
+          docker build -t test:latest .
+          docker run --rm test:latest
