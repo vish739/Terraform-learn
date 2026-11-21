@@ -1,0 +1,5 @@
+# Copy to terraform.tfvars and fill in your values
+github_repository = "YOUR-GITHUB-USER/YOUR-REPO"
+state_bucket_name = "tfstate-your-name"
+# state_kms_key_arn = "arn:aws:kms:ap-southeast-2:123456789012:key/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+# create_oidc_provider = false   # if "EntityAlreadyExists" appears for the provider
